@@ -104,24 +104,36 @@ public:
       if (shader) shader->begin();
 		  
 		  glPushMatrix();
-		  glTranslatef(-1.5f, 0.0f, 0.0f);
+		  glTranslatef(0, 0.0f, 0.0f);
 		  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
+
+		  glPushMatrix();
+		  glTranslatef(1.5f, 0.0f, 0.0f);
+		 // glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL);
+		  glPopMatrix();
+
       if (shader) shader->end();
 
 	  //*** Para Textura: llamado al shader para objetos texturizados
 	  if (shader1) shader1->begin();
 
 		  glPushMatrix();
-		  //glTranslatef(1.5f, 0.0f, 0.0f);
-		  //glBindTexture(GL_TEXTURE_2D, arregloTexturas[1]);
-		  //glmDraw(arregloModel[1], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glTranslatef(1.5f, 0.0f, 0.0f);
+		  glBindTexture(GL_TEXTURE_2D, arregloTexturas[1]);
+		  glmDraw(arregloModel[1], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glPopMatrix();
+
+		  glPushMatrix();
+		  glTranslatef(-1.5f, 0.0f, 0.0f);
+		  glBindTexture(GL_TEXTURE_2D, arregloTexturas[2]);
+		  glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
 
 		  glPushMatrix();
 		  glTranslatef(0.0f, 0.0f, 0.0f);
-		  glBindTexture(GL_TEXTURE_2D, arregloTexturas[0]);
-		  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  //glBindTexture(GL_TEXTURE_2D, arregloTexturas[0]);
+		  //glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
 	  //glutSolidTeapot(1.0);
 	  if (shader1) shader1->end();
@@ -169,7 +181,12 @@ public:
 
 	  //Abrir mallas
 	  cargarObjetos("nina.obj", 0);
-	  cargarObjetos("bola.obj", 1);
+	  cargarObjetos("12271_Kangaroo_v1_L3.obj", 1);
+	  cargarObjetos("14893_HippoBank_v1.obj", 3);
+	  /*
+	  cargarObjetos("PenguinBaseMesh.obj", 1);
+	  cargarObjetos("17852_Moose_v1.obj", 4);
+	  cargarObjetos("Ant.obj", 5);
 	  /*
 	  arregloModel[0] = NULL;
 
@@ -188,8 +205,10 @@ public:
 	  //*** Para Textura: abrir malla de objeto a texturizar
  
 	  //*** Para Textura: abrir archivo de textura
-	  initialize_textures("bola.jpg", 1);
-	  initialize_textures("texturaNina.jpg", 0);
+	  initialize_textures("12271_Kangaroo_v1_L3.jpg", 1);
+	  initialize_textures("14893_HippoBank_v1.jpg", 2);
+	  //initialize_textures("bola.jpg", 1);
+	  //initialize_textures("texturaNina.jpg", 0);
       DemoLight();
 
 	}
