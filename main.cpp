@@ -99,9 +99,9 @@ public:
 
       glPushMatrix();
 	  //glTranslatef(0, 0, 0);
-	  //glRotatef(90, 0, 1, 0);
-	  glTranslatef(2, 0.8, -1);
-	  //glTranslatef(0, -10, 0);
+	  glRotatef(90, 1, 0, 0);
+	  //glTranslatef(0, 0.8, 0.8);
+	  glTranslatef(0, -10, 0);
 
 
       if (shader) shader->begin();
@@ -116,7 +116,7 @@ public:
 		  // Niña
 		  glPushMatrix();
 			  glRotatef(90, 0, 1, 0);
-			  glTranslatef(-0.5, 0, 4);
+			  glTranslatef(-0.5, 0.18, 4);
 			  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
 
@@ -139,7 +139,7 @@ public:
 		  glPushMatrix();
 			  glRotatef(90, -1, 0, 0);
 			  glRotatef(135, 0, 0, 1);
-			  glTranslatef(-4, 0.0f, 0);
+			  glTranslatef(-4, 0, -0.125);
 			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[1]);
 			  glmDraw(arregloModel[1], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
@@ -147,8 +147,8 @@ public:
 		  // Jeysa (Pinguino)
 		  glPushMatrix();
 			  glRotatef(90, 0, 1, 0);
-			  glTranslatef(-0.5, 0, -4);
-			  glScalef(0.5, 0.5, 0.5);
+			  glTranslatef(-0.5, -0.4, -4);
+			  glScalef(0.4, 0.4, 0.4);
 			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[3]);
 			  glmDraw(arregloModel[3], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
