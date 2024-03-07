@@ -98,19 +98,23 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  glTranslatef(0, 0, 0);
-	  //glRotatef(timer010 * 360, 0.5, 1.0f, 0.1f);
+	  //glRotatef(90, 1, 0, 0);
+	  glTranslatef(0, 0, -10);
 
       if (shader) shader->begin();
 		  
+		  // Curasano
 		  glPushMatrix();
-		  glTranslatef(0, 0.0f, 0.0f);
-		  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL);
+			  glTranslatef(0, 0, 0);
+			  glRotatef(180, 0, 1, 0);
+			  glmDraw(arregloModel[6], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
 
+		  // Niña
 		  glPushMatrix();
-		  glTranslatef(1.5f, 0.0f, 0.0f);
-		 // glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL);
+			  glRotatef(90, 0, 1, 0);
+			  glTranslatef(-0.5, 0, 4);
+			  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
 
       if (shader) shader->end();
@@ -118,24 +122,48 @@ public:
 	  //*** Para Textura: llamado al shader para objetos texturizados
 	  if (shader1) shader1->begin();
 
+		  // Valeria (Kanguro)
 		  glPushMatrix();
-		  glTranslatef(1.5f, 0.0f, 0.0f);
-		  glBindTexture(GL_TEXTURE_2D, arregloTexturas[1]);
-		  glmDraw(arregloModel[1], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+			  glRotatef(90, -1, 0, 0);
+			  glRotatef(135, 0, 0, 1);
+			  glTranslatef(-4, 0.0f, 0);
+			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[1]);
+			  glmDraw(arregloModel[1], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glPopMatrix();
+
+		  // Jeysa (Pinguino)
+		  glPushMatrix();
+			  glRotatef(90, 0, 1, 0);
+			  glTranslatef(-0.5, 0, -4);
+			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[3]);
+			  glmDraw(arregloModel[3], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glPopMatrix();
+
+		  // Maria (Hormiga)
+		  glPushMatrix();
+			  glRotatef(180, 0, 1, 0);
+			  glTranslatef(0, 0, -3);
+			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[5]);
+			  glmDraw(arregloModel[5], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glPopMatrix();
+
+		  // Sara (Hipopotamo)
+		  glPushMatrix();
+			  glRotatef(90, -1, 0, 0);
+			  glRotatef(135, 0, 0, 1);
+			  glTranslatef(0, 4, 0);
+			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[2]);
+			  glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
 
 		  glPushMatrix();
-		  glTranslatef(-1.5f, 0.0f, 0.0f);
-		  glBindTexture(GL_TEXTURE_2D, arregloTexturas[2]);
-		  glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+			  glRotatef(90, -1, 0, 0);
+			  glRotatef(135, 0, 0, 1);
+			  glTranslatef(0, 4, 1);
+			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[4]);
+			  glmDraw(arregloModel[4], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
 
-		  glPushMatrix();
-		  glTranslatef(0.0f, 0.0f, 0.0f);
-		  //glBindTexture(GL_TEXTURE_2D, arregloTexturas[0]);
-		  //glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
-		  glPopMatrix();
-	  //glutSolidTeapot(1.0);
 	  if (shader1) shader1->end();
 
 
@@ -182,11 +210,11 @@ public:
 	  //Abrir mallas
 	  cargarObjetos("nina.obj", 0);
 	  cargarObjetos("12271_Kangaroo_v1_L3.obj", 1);
-	  cargarObjetos("14893_HippoBank_v1.obj", 3);
-	  /*
-	  cargarObjetos("PenguinBaseMesh.obj", 1);
+	  cargarObjetos("14893_HippoBank_v1.obj", 2);
+	  cargarObjetos("PenguinBaseMesh.obj", 3);
 	  cargarObjetos("17852_Moose_v1.obj", 4);
 	  cargarObjetos("Ant.obj", 5);
+	  cargarObjetos("OrugaAgroCura1.obj", 6);
 	  /*
 	  arregloModel[0] = NULL;
 
@@ -207,8 +235,9 @@ public:
 	  //*** Para Textura: abrir archivo de textura
 	  initialize_textures("12271_Kangaroo_v1_L3.jpg", 1);
 	  initialize_textures("14893_HippoBank_v1.jpg", 2);
-	  //initialize_textures("bola.jpg", 1);
-	  //initialize_textures("texturaNina.jpg", 0);
+	  initialize_textures("PenguinBaseMesh.jpg", 3);
+	  initialize_textures("17852_Moose_v1.jpg", 4);
+	  initialize_textures("Ant.jpg", 5);
       DemoLight();
 
 	}
