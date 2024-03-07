@@ -98,8 +98,11 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  //glRotatef(90, 1, 0, 0);
-	  glTranslatef(0, 0, -10);
+	  //glTranslatef(0, 0, 0);
+	  //glRotatef(90, 0, 1, 0);
+	  glTranslatef(2, 0.8, -1);
+	  //glTranslatef(0, -10, 0);
+
 
       if (shader) shader->begin();
 		  
@@ -116,6 +119,16 @@ public:
 			  glTranslatef(-0.5, 0, 4);
 			  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
+
+		  // Piso
+		  glPushMatrix();
+			  glRotatef(90, 0, 1, 0);
+			  glTranslatef(0, -0.8, 0);
+			  glScalef(5.0, -0.4, 5.0);
+			  glmDraw(arregloModel[7], GLM_SMOOTH | GLM_MATERIAL);
+		  glPopMatrix();
+
+
 
       if (shader) shader->end();
 
@@ -135,6 +148,7 @@ public:
 		  glPushMatrix();
 			  glRotatef(90, 0, 1, 0);
 			  glTranslatef(-0.5, 0, -4);
+			  glScalef(0.5, 0.5, 0.5);
 			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[3]);
 			  glmDraw(arregloModel[3], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
@@ -142,7 +156,7 @@ public:
 		  // Maria (Hormiga)
 		  glPushMatrix();
 			  glRotatef(180, 0, 1, 0);
-			  glTranslatef(0, 0, -3);
+			  glTranslatef(0, 0.2, -3);
 			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[5]);
 			  glmDraw(arregloModel[5], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
@@ -151,7 +165,7 @@ public:
 		  glPushMatrix();
 			  glRotatef(90, -1, 0, 0);
 			  glRotatef(135, 0, 0, 1);
-			  glTranslatef(0, 4, 0);
+			  glTranslatef(0, 4, -0.15);
 			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[2]);
 			  glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
@@ -215,6 +229,7 @@ public:
 	  cargarObjetos("17852_Moose_v1.obj", 4);
 	  cargarObjetos("Ant.obj", 5);
 	  cargarObjetos("OrugaAgroCura1.obj", 6);
+	  cargarObjetos("piso.obj", 7);
 	  /*
 	  arregloModel[0] = NULL;
 
