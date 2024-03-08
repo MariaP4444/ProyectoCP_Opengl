@@ -98,10 +98,9 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  //glTranslatef(0, 0, 0);
 	  glRotatef(90, 1, 0, 0);
-	  //glTranslatef(0, 0.8, 0.8);
-	  glTranslatef(0, -10, 0);
+	  //glTranslatef(0, 0.5, -10);
+	  glTranslatef(0, -40, 0);
 
 
       if (shader) shader->begin();
@@ -120,12 +119,14 @@ public:
 			  glmDraw(arregloModel[0], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
 
-		  // Piso
+		  // Iglesia
+		  //z = y, y = -z
+		  //z = 2.2
 		  glPushMatrix();
-			  glRotatef(90, 0, 1, 0);
-			  glTranslatef(0, -0.8, 0);
-			  glScalef(5.0, -0.4, 5.0);
-			  glmDraw(arregloModel[7], GLM_SMOOTH | GLM_MATERIAL);
+			  glRotatef(-90, 1, 0, 0);
+			  glTranslatef(0.5, 6, 6.2);
+			  glScalef(7, 7, 7);
+			  glmDraw(arregloModel[8], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
 
 
@@ -134,6 +135,14 @@ public:
 
 	  //*** Para Textura: llamado al shader para objetos texturizados
 	  if (shader1) shader1->begin();
+
+	  // Piso
+		  glPushMatrix();
+			  glTranslatef(0, -0.8, 0);
+			  glScalef(25, -0.4, 10);
+			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[6]);
+			  glmDraw(arregloModel[7], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
+		  glPopMatrix();
 
 		  // Valeria (Kanguro)
 		  glPushMatrix();
@@ -230,6 +239,7 @@ public:
 	  cargarObjetos("Ant.obj", 5);
 	  cargarObjetos("OrugaAgroCura1.obj", 6);
 	  cargarObjetos("piso.obj", 7);
+	  cargarObjetos("10063_Church_v3.obj", 8);
 	  /*
 	  arregloModel[0] = NULL;
 
@@ -253,6 +263,7 @@ public:
 	  initialize_textures("PenguinBaseMesh.jpg", 3);
 	  initialize_textures("17852_Moose_v1.jpg", 4);
 	  initialize_textures("Ant.jpg", 5);
+	  initialize_textures("texturaTierra.jpg", 6);
       DemoLight();
 
 	}
