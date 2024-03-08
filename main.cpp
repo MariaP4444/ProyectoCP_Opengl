@@ -98,9 +98,9 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
-	  glRotatef(90, 1, 0, 0);
-	  //glTranslatef(0, 0.5, -10);
-	  glTranslatef(0, -40, 0);
+	  //glRotatef(90, 1, 0, 0);
+	  glTranslatef(0, 0.5, -10);
+	  //glTranslatef(0, -40, 0);
 
 
       if (shader) shader->begin();
@@ -127,6 +127,13 @@ public:
 			  glTranslatef(0.5, 6, 6.2);
 			  glScalef(7, 7, 7);
 			  glmDraw(arregloModel[8], GLM_SMOOTH | GLM_MATERIAL);
+		  glPopMatrix();
+
+		  //Arbol
+		  glPushMatrix();
+			  glTranslatef(-7, 3, 0);
+			  glScalef(11, 11, 11);
+			  glmDraw(arregloModel[9], GLM_SMOOTH | GLM_MATERIAL);
 		  glPopMatrix();
 
 
@@ -240,6 +247,7 @@ public:
 	  cargarObjetos("OrugaAgroCura1.obj", 6);
 	  cargarObjetos("piso.obj", 7);
 	  cargarObjetos("10063_Church_v3.obj", 8);
+	  cargarObjetos("arbol.obj", 9);
 	  /*
 	  arregloModel[0] = NULL;
 

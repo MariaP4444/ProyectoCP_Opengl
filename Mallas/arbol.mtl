@@ -1,0 +1,13 @@
+# Blender 4.0.2 MTL File: 'arbol.blend'
+# www.blender.org
+
+newmtl Mat
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd -o 0 -1 0 C:/t11_7_DefaultMaterial_Diffuse.png
+map_Ks -o 0 -1 0 C:/t11_7_DefaultMaterial_Specular.png
+map_Bump -o 0 -1 0 -bm 1.000000 C:/t11_7_DefaultMaterial_Normal.png
