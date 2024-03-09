@@ -37,6 +37,7 @@ protected:
 public:
 	myWindow(){}
 
+	// Método para cargar modelos 3D
 	void cargarObjetos(std::string objeto, int posicion) {
 		arregloModel[posicion] = NULL;
 
@@ -54,7 +55,7 @@ public:
 		}
 	}
 
-	//*** Para Textura: aqui adiciono un método que abre la textura en JPG
+	// Método que abre la textura en JPG
 	void initialize_textures(std::string textura, int posicion)
 	{
 		int w, h;
@@ -90,7 +91,7 @@ public:
 		glEnable(GL_TEXTURE_2D);
 	}
 
-
+	// Método para renderizar la escena
 	virtual void OnRender(void)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -98,9 +99,22 @@ public:
       //timer010 = 0.09; //for screenshot!
 
       glPushMatrix();
+
+	  // VISTAS 
+	  // Vista de frente
+	  glTranslatef(0, -5, -16);
+
+	  // Vista desde arriba 
 	  //glRotatef(90, 1, 0, 0);
-	  glTranslatef(0, 0.5, -10);
-	  //glTranslatef(0, -40, 0);
+	  //glTranslatef(0, -25, 0);
+
+	  //Vista desde el lado izquierdo
+	  //glRotatef(90, 0, 1, 0);
+	  //glTranslatef(15, 0, 0);
+
+	  // Vista desde el lado derecho
+	  //glRotatef(90, 0, -1, 0);
+	  //glTranslatef(-15, 0, 0);
 
 
       if (shader) shader->begin();
@@ -143,10 +157,10 @@ public:
 	  //*** Para Textura: llamado al shader para objetos texturizados
 	  if (shader1) shader1->begin();
 
-	  // Piso
+	      // Piso
 		  glPushMatrix();
-			  glTranslatef(0, -0.8, 0);
-			  glScalef(25, -0.4, 10);
+			  glTranslatef(0, -0.8, 8);
+			  glScalef(25, -0.4, 30);
 			  glBindTexture(GL_TEXTURE_2D, arregloTexturas[6]);
 			  glmDraw(arregloModel[7], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
@@ -186,6 +200,7 @@ public:
 			  glmDraw(arregloModel[2], GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE);
 		  glPopMatrix();
 
+		  // David (Alce)
 		  glPushMatrix();
 			  glRotatef(90, -1, 0, 0);
 			  glRotatef(135, 0, 0, 1);
@@ -262,8 +277,6 @@ public:
 		  glmVertexNormals(arregloModel[0], 90.0);
 	  }
 	  */
-
-	  //*** Para Textura: abrir malla de objeto a texturizar
  
 	  //*** Para Textura: abrir archivo de textura
 	  initialize_textures("12271_Kangaroo_v1_L3.jpg", 1);
